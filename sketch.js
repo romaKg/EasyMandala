@@ -50,7 +50,7 @@ function setup() {
   lineBrush = new B_Line();
   currentBrush = lineBrush;
 
-  var settings = QuickSettings.create(0, 0, 'Settings')
+  var settings = QuickSettings.create(0, 0, 'Settings (double tap to fold)')
     // .setDraggable(false)
     .setPosition(50, 50)
     .addNumber('Segment Number', 1, 500, segmentNumber, 1, function (value) {
