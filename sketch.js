@@ -33,8 +33,14 @@ function centerCanvas() {
 }
 
 function setup() {
-  draw_area_width =　window.innerHeight * 0.9;
-  draw_area_height = draw_area_width;
+  if (window.innerWidth > window.innerHeight) {
+    draw_area_width = window.innerHeight * 0.9;
+    draw_area_height = draw_area_width;
+  }
+  else {
+    draw_area_width = window.innerWidth * 0.9;
+    draw_area_height = draw_area_width;
+  }
   cnv = createCanvas(draw_area_width, draw_area_height);
   centerCanvas();
   colorMode(RGB, 255);
