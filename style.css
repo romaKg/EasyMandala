@@ -1,0 +1,15 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.p5Canvas {
+  outline: 100px solid #eee;
+  margin: auto;
+}
+
+body{
+background-color: #fff; 
+}
+
+
