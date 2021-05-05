@@ -56,7 +56,7 @@ function setup() {
   lineBrush = new B_Line();
   currentBrush = lineBrush;
 
-  var settings = QuickSettings.create(0, 0, 'Settings (double tap to fold)')
+  var settings = QuickSettings.create(0, 0, 'Settings (double click to fold)')
     // .setDraggable(false)
     .setPosition(5, 5)
     .addNumber('Segment Number', 1, 500, segmentNumber, 1, function (value) {
@@ -145,13 +145,7 @@ function draw() {
       cnt++;
     }
   }
-
 }
-
-function paramUpdate() {
-  currentBrush.sizeUpdate(brushSize);
-}
-
 
 class Brush {
   constructor(px, py, x, y, c, s) {
