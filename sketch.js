@@ -58,7 +58,7 @@ function setup() {
 
   var settings = QuickSettings.create(0, 0, 'Settings (double tap to fold)')
     // .setDraggable(false)
-    .setPosition(50, 50)
+    .setPosition(5, 5)
     .addNumber('Segment Number', 1, 500, segmentNumber, 1, function (value) {
       segmentNumber = value;
     })
