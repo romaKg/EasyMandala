@@ -86,9 +86,7 @@ function setup() {
       brushSize = value;
     })
     .addRange('Flow', 0, 255, alphaValue, 1, function (value) {
-      pColor.setAlpha(value);
-      console.log(pColor);
-      // alphaValue = value;
+      alphaValue = value;
     })
     .addButton('Clear', function () {
       // background(255, 255, 255);
@@ -149,13 +147,11 @@ function draw() {
 }
 
 class Brush {
-  constructor(px, py, x, y, c, s) {
+  constructor(px, py, x, y) {
     this.pxpos = px;
     this.pypos = py;
     this.xpos = x;
     this.ypos = y;
-    this.col = c;
-    this.size = s;
   }
   //位置の更新
   posUpdate(px, py, x, y) {
@@ -163,14 +159,6 @@ class Brush {
     this.pypos = py;
     this.xpos = x;
     this.ypos = y;
-  }
-  //色の更新
-  colUpdate(c) {
-    this.col = color(c);
-  }
-  //サイズの更新
-  sizeUpdate(s) {
-    this.size = s;
   }
   drawStroke() {
   }
@@ -180,8 +168,8 @@ class Brush {
 
 //線ブラシ
 class B_Line extends Brush {
-  constructor(px, py, x, y, c, s) {
-    super(px, py, x, y, c, s);
+  constructor(px, py, x, y) {
+    super(px, py, x, y);
   }
   drawStroke() {
     stroke(redValue, greenValue, blueValue, alphaValue);
@@ -192,24 +180,22 @@ class B_Line extends Brush {
 
 //長方形ブラシ
 class B_Square extends Brush {
-  constructor(px, py, x, y, c, s) {
-    super(px, py, x, y, c, s);
+  constructor(px, py, x, y) {
+    super(px, py, x, y);
   }
 
   drawStroke() {
     rectMode(CENTER);
     noFill();
     stroke(redValue, greenValue, blueValue, alphaValue);
-
     square(this.xpos, this.ypos, brushSize);
-
   }
 }
 
 //楕円形ブラシ
 class B_Circle extends Brush {
-  constructor(px, py, x, y, f, c, s) {
-    super(px, py, x, y, f, c, s);
+  constructor(px, py, x, y) {
+    super(px, py, x, y);
   }
 
   drawStroke() {
