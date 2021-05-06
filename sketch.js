@@ -1,6 +1,6 @@
 let draw_area_width;
 let draw_area_height;
-let pivot; //ピボット
+let pivot;
 
 var cnv;
 
@@ -115,22 +115,15 @@ function setup() {
 
 
 function draw() {
-  //色、ブラシサイズ、間隔、ジッターポジション（マウス以外）
-  // paramUpdate();
-
   if (mouseIsPressed) {
-
     push();
     translate(pivot.xpos, pivot.ypos); //原点を描画領域の中心に
-
-    //位置・サイズ更新ここから
+    //位置更新
     currentBrush.posUpdate(pmouseX, pmouseY, mouseX, mouseY);
     currentBrush.pxpos -= pivot.xpos;
     currentBrush.pypos -= pivot.ypos;
     currentBrush.xpos -= pivot.xpos;
     currentBrush.ypos -= pivot.ypos;
-
-    //位置・サイズ更新ここまで
     pop();
 
     let cnt = 0;
@@ -138,7 +131,6 @@ function draw() {
       push();
       translate(pivot.xpos, pivot.ypos); //原点を描画領域の中心に
       rotate(i);
-      //図形描画ここから
       currentBrush.drawStroke();
       pop();
       cnt++;
@@ -153,7 +145,6 @@ class Brush {
     this.xpos = x;
     this.ypos = y;
   }
-  //位置の更新
   posUpdate(px, py, x, y) {
     this.pxpos = px;
     this.pypos = py;
@@ -166,7 +157,6 @@ class Brush {
   }
 }
 
-//線ブラシ
 class B_Line extends Brush {
   constructor(px, py, x, y) {
     super(px, py, x, y);
@@ -178,7 +168,6 @@ class B_Line extends Brush {
   }
 }
 
-//長方形ブラシ
 class B_Square extends Brush {
   constructor(px, py, x, y) {
     super(px, py, x, y);
@@ -192,7 +181,6 @@ class B_Square extends Brush {
   }
 }
 
-//楕円形ブラシ
 class B_Circle extends Brush {
   constructor(px, py, x, y) {
     super(px, py, x, y);
