@@ -92,7 +92,7 @@ function setup() {
       // background(255, 255, 255);
       clear();
     })
-    .addHTML('説明', 'マウスドラッグで描く。<br>セグメント数の上限は一応500。<br>下の「Download」ボタンで現在のキャンバスをpng画像として保存できる。')
+    .addHTML('説明', 'リロードするとキャンバスのサイズを最適化できます。<br>下の「Download」ボタンで現在のキャンバスをpng画像として保存できます。')
     .addButton('Download', function () {
       let canvas = document.getElementById('defaultCanvas0');
       let link = document.createElement('a');
